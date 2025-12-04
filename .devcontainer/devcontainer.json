@@ -1,26 +1,30 @@
 {
-  "name": "bvp47 devbox",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers/features/python:1": {},
-    "ghcr.io/devcontainers/features/go:1": {},
-    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}
+  "name": "kube-devbox",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
   },
-  "remoteUser": "vscode",
+
+  // Where you'll work inside the container
   "workspaceFolder": "/workspace",
+
+  // Mount the repo into the container
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
   ],
-  "postCreateCommand": "pip install --user virtualenv && npm install -g pnpm",
+
+  // It's OK to use root in a personal dev container
+  "remoteUser": "root",
+
+  // Optional: VS Code customizations if you use it with DevPod
   "customizations": {
     "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
       "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance",
         "golang.go",
-        "ms-vscode.vscode-typescript-next",
-        "ms-azuretools.vscode-docker",
         "ms-kubernetes-tools.vscode-kubernetes-tools"
       ]
     }
