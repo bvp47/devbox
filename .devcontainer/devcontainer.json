@@ -4,28 +4,16 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
-
-  // Where you'll work inside the container
   "workspaceFolder": "/workspace",
-
-  // Mount the repo into the container
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind"
-  ],
-
-  // It's OK to use root in a personal dev container
   "remoteUser": "root",
-
-  // Optional: VS Code customizations if you use it with DevPod
+  "postCreateCommand": "/bin/bash .devcontainer/setup.sh",
   "customizations": {
     "vscode": {
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
-      },
       "extensions": [
         "ms-python.python",
         "golang.go",
-        "ms-kubernetes-tools.vscode-kubernetes-tools"
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-azuretools.vscode-docker"
       ]
     }
   }
