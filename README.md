@@ -94,7 +94,7 @@ All binaries install to `~/.local/bin` — no sudo needed except for `python3` a
 ### Usage
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/bvp47/devbox/main/jumpbox.sh -o jumpbox.sh && bash jumpbox.sh
+curl -fsSL https://raw.githubusercontent.com/bvp47/devbox/main/jumpbox.sh -o jb.sh && bash jb.sh
 ```
 
 > Note: must be downloaded first (not piped) because the script has an interactive menu.
