@@ -6,6 +6,9 @@
   },
   "workspaceFolder": "/workspace",
   "remoteUser": "root",
+  "mounts": [
+    "source=${localEnv:HOME}/.kube,target=/root/.kube,type=bind,consistency=cached"
+  ],
   "postCreateCommand": "/bin/bash .devcontainer/setup.sh",
   "customizations": {
     "vscode": {
