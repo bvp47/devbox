@@ -9,7 +9,7 @@ A portable Kubernetes development environment and jumpbox bootstrap toolkit. Spi
 This repo provides two things:
 
 - **`bootstrap.sh`** — sets up your local machine (macOS or Linux) with Docker, DevPod, and a full dev container pre-loaded with Kubernetes tooling
-- **`jumpbox.sh`** — a lightweight, no-sudo installer for client jumpboxes where you just need the CLI tools and nothing else
+- **`jb.sh`** — a lightweight, no-sudo installer for client jumpboxes where you just need the CLI tools and nothing else
 
 ---
 
@@ -149,7 +149,7 @@ k9s
 ```
 devbox/
 ├── bootstrap.sh              # Local machine setup
-├── jumpbox.sh                # Client jumpbox setup
+├── jb.sh                # Client jumpbox setup
 └── .devcontainer/
     ├── devcontainer.json     # Dev container config + kubeconfig mount
     ├── Dockerfile            # Ubuntu 22.04 image with all tools
@@ -167,7 +167,7 @@ bootstrap.sh → Docker + DevPod → devpod ssh devbox → kubectl / helm / k9s
 
 ### Client Jumpbox
 ```
-ssh -A user@jumpbox → jumpbox.sh → az/aws/gcloud login → kubectl get nodes
+ssh -A user@jumpbox → jb.sh → az/aws/gcloud login → kubectl get nodes
 ```
 
 > Use `ssh -A` to forward your local SSH key to the jumpbox for private repo access without storing keys on the client machine.
